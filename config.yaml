@@ -1,0 +1,59 @@
+components_manager:
+  task_processors:
+    main-task-processor:
+      worker_threads: 4
+    fs-task-processor:
+      worker_threads: 1
+    rocks-indexer-task-processor:
+      worker_threads: 4
+      thread_name: rocks-indexer
+    rocks-task-processor:
+      worker_threads: 4
+    consumer-task-processor:
+      worker_threads: 4
+      thread_name: consumer
+    consumer-blocking-task-processor:
+      worker_threads: 1
+      thread_name: consumer-blocking
+  components:
+    server:
+      listener:
+        port: 80
+    default-secdist-provider:
+      config: secdist.json
+    logging:
+      loggers:
+        default:
+          file_path: '@stdout'
+    rocks:
+      db_path: /mnt/rocksdb
+      max_background_jobs: 14
+      column_families:
+        - default
+        - sol_tab
+        - sol_acc2tab_idx
+        - sol_sig2tab_idx
+      bottommost_compression: zstd
+      bottommost_compression_level: 5
+    kafka-consumer-solana:
+      group_id: atlas
+      topics:
+        - solana-tx
+      max_batch_size: 200
+      sasl_mechanisms: SCRAM-SHA-512
+      security_protocol: PLAINTEXT
+      operation_log_level: debug
+    rocksdb-indexer-solana:
+      kafka_consumer: kafka-consumer-solana
+    http-handler-transactions-get-solana:
+      path: /solana/transaction/{signature}
+      method: GET
+    http-handler-transactions-list-solana:
+      path: /solana/transactions
+      method: GET
+      response-body-stream: true
+    http-handler-account-transactions-list-solana:
+      path: /solana/account/{account}/transactions
+      method: GET
+      response-body-stream: true
+

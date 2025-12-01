@@ -1,0 +1,35 @@
+{
+  "name": "atlas",
+  "syncdbs": {
+    "system": [
+      "https://mirrors.dotsrc.org/artix-linux/repos/system/os/x86_64/"
+    ],
+    "world": [
+      "https://mirrors.dotsrc.org/artix-linux/repos/world/os/x86_64/"
+    ],
+    "galaxy": [
+      "https://mirrors.dotsrc.org/artix-linux/repos/galaxy/os/x86_64/"
+    ]
+  },
+  "deps": [
+    "gcc",
+    "clang",
+    "libedit",
+    "llvm-libs",
+    "compiler-rt",
+    "libisl",
+    "libmpc",
+    "cmake",
+    "python",
+    "snappy",
+    "libuv",
+    "rhash",
+    "cppdap",
+    "jsoncpp",
+    "ninja",
+    "jemalloc",
+    "pod2man",
+    "gflags"
+  ]
+}
+

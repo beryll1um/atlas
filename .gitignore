@@ -1,0 +1,6 @@
+# This environment is local and should not be shared with anyone else.
+/.pacenv
+
+# The locally generated CMake build system is stored here.
+/build
+

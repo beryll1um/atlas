@@ -1,0 +1,8 @@
+{
+  "kafka_settings": {
+    "kafka-consumer-solana": {
+      "brokers": "localhost:9092"
+    }
+  }
+}
+

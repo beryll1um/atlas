@@ -1,0 +1,17 @@
+# There is also no point in downloading anything related to git.
+/.git
+/.gitignore
+
+# This environment is local and should not be shared with anyone else.
+/.pacenv
+
+# Local configuration is also better to be ignored.
+/config.yaml
+/secdist.json
+
+# The locally generated CMake build system is stored here.
+/build
+
+# It seems bold, but Dockerfile should be excluded too.
+/Dockerfile
+
